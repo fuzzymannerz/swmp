@@ -38,7 +38,7 @@
 
     <!-- Change "simplex" to one of the themes in css/themes to change the theme -->
              <!-- You can see what they look like at bootswatch.com -->
-          <link href="css/themes/united.css" rel="stylesheet" id="themestyle">
+          <link href="css/themes/simplex.css" rel="stylesheet" id="themestyle">
 
     <!-- *********************************************************************** -->
 
