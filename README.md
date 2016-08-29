@@ -12,7 +12,7 @@
 
 ## Installation
 1. [Download the Zip file](https://github.com/fuzzymannerz/swmp/archive/master.zip).
-2. Extract the files to the web server.
+2. Extract the files to the web server. (You might want to secure access somehow, [.htpasswd](http://www.htaccesstools.com/htpasswd-generator/) maybe?)
 3. That's it! (Unless you want to change the theme, in which case, read on!)
 
 ## Themes
