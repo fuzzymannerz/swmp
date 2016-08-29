@@ -5,6 +5,9 @@
 
 ![](http://i.imgur.com/q8XWluS.png)
 
+### Non-"Fancy fake devices" Screenshot. ;)
+![](https://i.imgur.com/zAIBKkd.png)
+
 ## Requirements
 - Linux OS with...
 - A Web Server. (Nginx, Apache etc...)
