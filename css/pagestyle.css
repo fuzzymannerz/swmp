@@ -1,5 +1,8 @@
 body{
-    padding-top: 50px;
+    padding-top: 40px;
+}
+.container{
+    max-width: 80%;
 }
 .subheader{
     margin-top: -8px;
@@ -7,7 +10,10 @@ body{
     font-size: 14px;
 }
 .list > li{
-    font-size: 18px;
+    font-size: 16px;
+}
+.infos h2{
+    font-size: 22px;
 }
 .fineprintinline{
     font-size: 11px;
@@ -20,12 +26,13 @@ body{
     color: #C8C8C8;
 }
 .buttons{
-    margin-top: 20px;
+    margin-top: 25px;
 }
 .subicons{
     margin-top: 20px;
 }
 .footer{
     margin-top: 10px;
+    margin-bottom: 40px;
     font-size: 12px;
 }
