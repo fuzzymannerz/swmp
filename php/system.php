@@ -138,7 +138,6 @@ if ($cpufrequency == 'N/A')
 
 $datas = array(
     'model'      => $cpumodel,
-    'num_cores'  => $cpunum_cores,
     'frequency'  => $cpufrequency,
     'cache'      => $cpucache,
     'temp'       => $cputemp,
