@@ -1,0 +1,31 @@
+body{
+    padding-top: 50px;
+}
+.subheader{
+    margin-top: -8px;
+    color: darkgray;
+    font-size: 14px;
+}
+.list > li{
+    font-size: 18px;
+}
+.fineprintinline{
+    font-size: 11px;
+    vertical-align: text-top;
+    color: #C8C8C8;
+}
+.fineprint{
+    margin-top: 5px;
+    font-size: 11px;
+    color: #C8C8C8;
+}
+.buttons{
+    margin-top: 20px;
+}
+.subicons{
+    margin-top: 20px;
+}
+.footer{
+    margin-top: 10px;
+    font-size: 12px;
+}
