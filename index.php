@@ -218,7 +218,7 @@
             </table>
         </div>
 
-         
+
         <div class="col-md-6">
          	<h3>Disk Information</h3>
             <table class="table tablesaw tablesaw-stack" data-tablesaw-mode="stack" id="disktable">

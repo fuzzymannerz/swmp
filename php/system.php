@@ -164,7 +164,7 @@ function cpuloads()
 	            if ($v > 100)
 	                $v = 100;
 	            return $v;
-	        }, 
+	        },
 	        $load_exp,
 	        array_fill(0, 3, $cores)
 	    );
@@ -179,7 +179,7 @@ $cpudata = cpuloads();
 
 /////////////////////////////
 ///      RAM RELATED      ///
-///////////////////////////// 
+/////////////////////////////
 
 function raminfo(){
 
@@ -225,7 +225,7 @@ $ramdata = raminfo();
 
 /////////////////////////////
 ///      BOOTUP TIME      ///
-///////////////////////////// 
+/////////////////////////////
 
 function bootup(){
     if (!($upt_tmp = shell_exec('cat /proc/uptime')))
@@ -250,7 +250,7 @@ $bootTime = bootup();
 
 //////////////////////////////
 ///      SWAP RELATED      ///
-////////////////////////////// 
+//////////////////////////////
 
 function swap(){
 
@@ -291,7 +291,7 @@ $swap = swap();
 
 //////////////////////////////
 ///     NETWORK RELATED    ///
-////////////////////////////// 
+//////////////////////////////
 
 function network(){
     $datas    = array();
@@ -366,7 +366,7 @@ function network(){
         {
             $ip = null;
 
-            $getIp_cmd = getIpCommand($commands, $name);        
+            $getIp_cmd = getIpCommand($commands, $name);
 
             if (is_null($getIp_cmd) || !(exec($getIp_cmd, $ip)))
             {
