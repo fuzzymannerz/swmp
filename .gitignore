@@ -4,3 +4,5 @@ Thumbs.db
 #*
 .idea/*
 web.config
+
+config.local.php

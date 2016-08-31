@@ -33,14 +33,14 @@
     <link rel="manifest" href="/manifest.json">
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#4b4b4b">
     <meta name="theme-color" content="#ffffff">
-    <title>SWMP | <?php echo php_uname('n'); ?></title>
-    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+    <title><?php echo $wtitle; ?></title>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
 
     <!-- *********************************************************************** -->
 
     <!-- Change "simplex" to one of the themes in css/themes to change the theme -->
     <!-- You can see what they look like at bootswatch.com -->
-    <link href="css/themes/simplex.css" rel="stylesheet" id="themestyle">
+    <link href="css/themes/<?php echo $config["theme"]; ?>.css" rel="stylesheet" id="themestyle">
 
     <!-- *********************************************************************** -->
 
@@ -74,11 +74,13 @@
             </div>
 
             <div class="container">
-                <?php foreach ($all_errors as $error): ?>
-                    <div class="alert alert-danger">
-                        <?php echo $error ?>
-                    </div>
-                <?php endforeach; ?>
+                <?php
+                if ($config["show_errors"]) {
+                    foreach ($all_errors as $error) {
+                        echo '<div class="alert alert-danger">' . $error . ' </div>' . "\n";
+                    }
+                }
+                ?>
 
                 <div class="row">
                     <div class="col-md-12">
