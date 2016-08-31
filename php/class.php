@@ -23,11 +23,11 @@ class mainclass
             else
                 break;
         }
-        
+
         return round($filesize, $precision).' '.$units[$idUnit].'B';
     }
-    
-    
+
+
     /**
      * Returns hostname
      *
@@ -41,7 +41,7 @@ class mainclass
 
     /**
      * Returns CPU cores number
-     * 
+     *
      * @return  int  Number of cores
      */
     public static function getCpuCoresNumber()
@@ -68,14 +68,14 @@ class mainclass
      */
     public static function getLanIp()
     {
-        return $_SERVER['SERVER_ADDR'];
+        return isset($_SERVER['SERVER_ADDR']) ? $_SERVER['SERVER_ADDR'] : $_SERVER['HTTP_HOST'];
     }
 
 
     /**
      * Seconds to human readable text
      * Eg: for 36545627 seconds => 1 year, 57 days, 23 hours and 33 minutes
-     * 
+     *
      * @return string Text
      */
     public static function getHumanTime($seconds)
@@ -87,13 +87,13 @@ class mainclass
             'minute' => 60,
             // 'second' => 1,
         );
-     
+
         $parts = array();
-     
+
         foreach ($units as $name => $divisor)
         {
             $div = floor($seconds / $divisor);
-     
+
             if ($div == 0)
                 continue;
             else
@@ -103,9 +103,9 @@ class mainclass
                     $parts[] = $div.' '.$name.'s';
             $seconds %= $divisor;
         }
-     
+
         $last = array_pop($parts);
-     
+
         if (empty($parts))
             return $last;
         else
@@ -130,7 +130,7 @@ class mainclass
             if (trim(shell_exec($cmd.$args)) != '')
             {
                 $return = $cmd;
-                
+
                 if ($returnWithArgs)
                     $return .= $args;
 
@@ -147,7 +147,7 @@ class mainclass
      * Ex : echo 'mot'.Misc::pluralize(5); ==> prints mots
      * Ex : echo 'cheva'.Misc::pluralize(5, 'ux', 'l'); ==> prints chevaux
      * Ex : echo 'cheva'.Misc::pluralize(1, 'ux', 'l'); ==> prints cheval
-     * 
+     *
      * @param  int       $nb         Number
      * @param  string    $plural     String for plural word
      * @param  string    $singular   String for singular word
@@ -198,8 +198,8 @@ class mainclass
 
             $endTime = time();
 
-            $timeDiff = $endTime - $startTime; 
-            
+            $timeDiff = $endTime - $startTime;
+
             fclose($handle);
 
             if ($timeDiff >= $timeout)
