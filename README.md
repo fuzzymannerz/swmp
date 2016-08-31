@@ -14,6 +14,11 @@
 - PHP with **shellexec()** and **exec()** enabled.
 
 ## Installation
+
+### The Easy Way
+Simply run `bash <(curl -s -L https://getswmp.thefuzz.xyz)` from your Linux command line and follow the setup steps.
+
+### The Manual Way
 1. [Download the Zip file](https://github.com/fuzzymannerz/swmp/archive/master.zip).
 2. Extract the files to the web server. (You might want to secure access somehow, [.htpasswd](http://www.htaccesstools.com/htpasswd-generator/) maybe?)
 3. That's it! (Unless you want to change the theme, in which case, read on!)
