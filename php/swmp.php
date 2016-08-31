@@ -21,25 +21,38 @@
 
 require 'php/system.php';
 
-// Get system info
-$hostname = getSystemHostname();
-$ip = getLanIp();
-$cores = getCpuCoresNumber();
-$os = getOperatingSystem();
-$kernel = getKernel();
-$uptime = getUptime();
-$bootTime = getBootupTime();
+$all_errors = array();
 
-$cpumodel      = getCpuModel();
-$cpufrequency  = getCpuFrequency();
-$cpucache      = getCpuCacheSize();
-$cputemp       = getCpuTemperature();
+// ================  Get system info ================
 
-$cpudata = getCpuLoadData();
+$hostname = getSystemHostname($all_errors);
+$ip = getLanIp($all_errors);
+$cores = getCpuCoresNumber($all_errors);
+$os = getOperatingSystem($all_errors);
+$kernel = getKernel($all_errors);
+$uptime = getUptime($all_errors);
+$bootTime = getBootupTime($all_errors);
 
-$ramdata = getRamInfo();
+$cpumodel      = getCpuModel($all_errors);
+$cpufrequency  = getCpuFrequency($all_errors);
+$cpucache      = getCpuCacheSize($all_errors);
+$cputemp       = getCpuTemperature($all_errors);
+
+$cpudata = getCpuLoadData($all_errors);
+
+$ramdata = getRamInfo($all_errors);
 
 
-$swap = getSwapData();
-$network = getNetworkData();
-$disk = getDiskData();
+$swap = getSwapData($all_errors);
+$network = getNetworkData($all_errors);
+$disk = getDiskData($all_errors);
+
+//=====================================================
+
+// Limit shown errors to max 8
+
+$error_count = count($all_errors);
+if ($error_count > 8) {
+    $all_errors = array_slice($all_errors, 0, 7);
+    $all_errors[] = "There were " . ($error_count - 7) . " more errors that are currently not shown";
+}

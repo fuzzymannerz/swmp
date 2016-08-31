@@ -74,6 +74,12 @@
             </div>
 
             <div class="container">
+                <?php foreach ($all_errors as $error): ?>
+                    <div class="alert alert-danger">
+                        <?php echo $error ?>
+                    </div>
+                <?php endforeach; ?>
+
                 <div class="row">
                     <div class="col-md-12">
                         <h3>System Information</h3>
