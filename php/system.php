@@ -1,187 +1,302 @@
 <?php
 
-/*///////////////////////////////////////////////
-///                                           ///
-///     SWMP - Server Web Monitoring Page     ///
-///       By Fuzzy - thefuzz.xyz - 2016       ///
-///                                           ///
-/////////////////////////////////////////////////
-///                                           ///
-///    Credits, downloads and usage info:     ///
-///    https://github.com/fuzzymannerz/swmp   ///
-///                                           ///
-////////////////////////////////////////////////////////////
-///                                                      ///
-///    If you make use of SWMP please consider to        ///
-///    show some love via PayPal, Flattr or BTC. <3      ///
-///   (Details are on the GitHub page or my website.)    ///
-///                                                      ///
-//////////////////////////////////////////////////////////*/
+require 'php/utils.php';
 
-
-// Include the class
-require 'class.php';
-
-// Set some variables
-$hostname = mainclass::getHostname();
-$ip = mainclass::getLanIp();
-$cores = mainclass::getCpuCoresNumber();
-
-
-/////////////////////////////
-///      OS  RELATED      ///
-/////////////////////////////
-
-// Operating System
-if (!($os = shell_exec('/usr/bin/lsb_release -ds | cut -d= -f2 | tr -d \'"\'')))
+/**
+ * Returns hostname
+ * Lifted from github.com/shevabam/ezservermonitor-web
+ *
+ * @return  string  Hostname
+ */
+function getSystemHostname()
 {
-    if (!($os = shell_exec('cat /etc/system-release | cut -d= -f2 | tr -d \'"\'')))
+    return php_uname('n');
+}
+
+/**
+ * Returns server IP
+ * Lifted from github.com/shevabam/ezservermonitor-web
+ *
+ * @return string Server local IP
+ */
+function getLanIp()
+{
+    return isset($_SERVER['SERVER_ADDR']) ? $_SERVER['SERVER_ADDR'] : $_SERVER['HTTP_HOST'];
+}
+
+/**
+ * Returns CPU cores number
+ * Lifted from github.com/shevabam/ezservermonitor-web
+ *
+ * @return  int  Number of cores
+ */
+function getCpuCoresNumber()
+{
+    if (!($num_cores = shell_exec('/bin/grep -c ^processor /proc/cpuinfo')))
     {
-        if (!($os = shell_exec('cat /etc/os-release | grep PRETTY_NAME | tail -n 1 | cut -d= -f2 | tr -d \'"\'')))
+        if (!($num_cores = trim(shell_exec('/usr/bin/nproc'))))
         {
-            if (!($os = shell_exec('find /etc/*-release -type f -exec cat {} \; | grep PRETTY_NAME | tail -n 1 | cut -d= -f2 | tr -d \'"\'')))
+            $num_cores = 1;
+        }
+    }
+
+    if ((int)$num_cores <= 0)
+        $num_cores = 1;
+
+    return (int)$num_cores;
+}
+
+/**
+ * Returns the operating system
+ *
+ * @return  string  name of OS
+ */
+function getOperatingSystem()
+{
+    if (!($os = shell_exec('/usr/bin/lsb_release -ds | cut -d= -f2 | tr -d \'"\'')))
+    {
+        if (!($os = shell_exec('cat /etc/system-release | cut -d= -f2 | tr -d \'"\'')))
+        {
+            if (!($os = shell_exec('cat /etc/os-release | grep PRETTY_NAME | tail -n 1 | cut -d= -f2 | tr -d \'"\'')))
             {
-                $os = 'N/A';
+                if (!($os = shell_exec('find /etc/*-release -type f -exec cat {} \; | grep PRETTY_NAME | tail -n 1 | cut -d= -f2 | tr -d \'"\'')))
+                {
+                    $os = 'N/A';
+                }
             }
         }
     }
-}
-$os = trim($os, '"');
-$os = str_replace("\n", '', $os);
+    $os = trim($os, '"');
+    $os = str_replace("\n", '', $os);
 
-// Kernel
-if (!($kernel = shell_exec('/bin/uname -r')))
-{
-    $kernel = 'N/A';
+    return $os;
 }
 
-// Uptime
-if (!($totalSeconds = shell_exec('/usr/bin/cut -d. -f1 /proc/uptime')))
+/**
+ * Returns the kernel name
+ *
+ * @return  string  name of the kernel
+ */
+function getKernel()
 {
-    $uptime = 'N/A';
-}
-else
-{
-    $uptime = mainclass::getHumanTime($totalSeconds);
-}
-
-
-/////////////////////////////
-///      CPU RELATED      ///
-/////////////////////////////
-
-$cpumodel      = 'N/A';
-$cpufrequency  = 'N/A';
-$cpucache      = 'N/A';
-$cputemp       = 'N/A';
-
-if ($cpuinfo = shell_exec('cat /proc/cpuinfo'))
-{
-    $processors = preg_split('/\s?\n\s?\n/', trim($cpuinfo));
-
-    foreach ($processors as $processor)
+    if (!($kernel = shell_exec('/bin/uname -r')))
     {
-        $details = preg_split('/\n/', $processor, -1, PREG_SPLIT_NO_EMPTY);
+        $kernel = 'N/A';
+    }
 
-        foreach ($details as $detail)
+    return $kernel;
+}
+
+/**
+ * Returns the current uptime in human readable format
+ *
+ * @return  string  the current uptime
+ */
+function getUptime()
+{
+    if (!($totalSeconds = shell_exec('/usr/bin/cut -d. -f1 /proc/uptime')))
+    {
+        $uptime = 'N/A';
+    }
+    else
+    {
+        $uptime = getHumanTime($totalSeconds);
+    }
+
+    return $uptime;
+}
+
+/**
+ * Returns the model of the first CPU
+ *
+ * @return  string  the cpu model
+ */
+function getCpuModel()
+{
+    $result = "N/A";
+
+    if ($cpuinfo = shell_exec('cat /proc/cpuinfo'))
+    {
+        $processors = preg_split('/\s?\n\s?\n/', trim($cpuinfo));
+
+        foreach ($processors as $processor)
         {
-            list($key, $value) = preg_split('/\s*:\s*/', trim($detail));
+            $details = preg_split('/\n/', $processor, -1, PREG_SPLIT_NO_EMPTY);
 
-            switch (strtolower($key))
+            foreach ($details as $detail)
             {
-                case 'model name':
-                case 'cpu model':
-                case 'cpu':
-                case 'processor':
-                    $cpumodel = $value;
-                break;
+                list($key, $value) = preg_split('/\s*:\s*/', trim($detail));
 
-                case 'cpu mhz':
-                case 'clock':
-                    $cpufrequency = $value.' MHz';
-                break;
-
-                case 'cache size':
-                case 'l2 cache':
-                    $cpucache = $value;
-                break;
+                switch (strtolower($key))
+                {
+                    case 'model name':
+                    case 'cpu model':
+                    case 'cpu':
+                    case 'processor':
+                        $result = $value;
+                }
             }
         }
     }
+
+    return $result;
 }
 
-// Frequency
-if ($cpufrequency == 'N/A')
+/**
+ * Returns the frequency of the first CPU
+ *
+ * @return  string  the cpu frequency
+ */
+function getCpuFrequency()
 {
-    if ($f = shell_exec('cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq'))
+    $result = "N/A";
+
+    if ($cpuinfo = shell_exec('cat /proc/cpuinfo'))
     {
-        $f = $f / 1000;
-        $cpufrequency = $f.' MHz';
+        $processors = preg_split('/\s?\n\s?\n/', trim($cpuinfo));
+
+        foreach ($processors as $processor)
+        {
+            $details = preg_split('/\n/', $processor, -1, PREG_SPLIT_NO_EMPTY);
+
+            foreach ($details as $detail)
+            {
+                list($key, $value) = preg_split('/\s*:\s*/', trim($detail));
+
+                switch (strtolower($key))
+                {
+                    case 'cpu mhz':
+                    case 'clock':
+                        $result = $value.' MHz';
+                }
+            }
+        }
     }
+
+
+    if ($result === "N/A") {
+        // previous method failed
+        if ($f = shell_exec('cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_max_freq')) {
+            $f = $f / 1000;
+            $result = $f . ' MHz';
+        }
+    }
+
+    return $result;
 }
 
+/**
+ * Returns the cache size of the first CPU
+ *
+ * @return  string  the cpu cache size
+ */
+function getCpuCacheSize()
+{
+    $result = "N/A";
 
-// CPU Temp
+    if ($cpuinfo = shell_exec('cat /proc/cpuinfo'))
+    {
+        $processors = preg_split('/\s?\n\s?\n/', trim($cpuinfo));
+
+        foreach ($processors as $processor)
+        {
+            $details = preg_split('/\n/', $processor, -1, PREG_SPLIT_NO_EMPTY);
+
+            foreach ($details as $detail)
+            {
+                list($key, $value) = preg_split('/\s*:\s*/', trim($detail));
+
+                switch (strtolower($key))
+                {
+                    case 'cache size':
+                    case 'l2 cache':
+                        $result = $value;
+                }
+            }
+        }
+    }
+
+    return $result;
+}
+
+/**
+ * Returns the temperature of the first CPU
+ *
+ * @return  string  the cpu temperature
+ */
+function getCpuTemperature()
+{
     if (exec('/usr/bin/sensors | grep -E "^(CPU Temp|Core 0)" | cut -d \'+\' -f2 | cut -d \'.\' -f1', $t))
     {
         if (isset($t[0]))
-            $cputemp = $t[0].' °c';
+            return $t[0].' °c';
     }
     else
     {
         if (exec('cat /sys/class/thermal/thermal_zone0/temp', $t))
         {
-            $cputemp = round($t[0] / 1000).' °C';
+            return round($t[0] / 1000).' °C';
         }
     }
 
-
-$datas = array(
-    'model'      => $cpumodel,
-    'frequency'  => $cpufrequency,
-    'cache'      => $cpucache,
-    'temp'       => $cputemp,
-);
-
-
-// CPU Load Averages
-function cpuloads()
-{
-	if (!($load_tmp = shell_exec('cat /proc/loadavg | awk \'{print $1","$2","$3}\'')))
-	{
-	    $cpuloaddata = array(0, 0, 0);
-	}
-	else
-	{
-	    // Number of cores
-	    $cores = mainclass::getCpuCoresNumber();
-
-	    $load_exp = explode(',', $load_tmp);
-
-	    $cpuloaddata = array_map(
-	        function ($value, $cores) {
-	            $v = (int)($value * 100 / $cores);
-	            if ($v > 100)
-	                $v = 100;
-	            return $v;
-	        },
-	        $load_exp,
-	        array_fill(0, 3, $cores)
-	    );
-	}
-
-    return json_encode($cpuloaddata);
+    return "N/A";
 }
 
-// Set CPU load variable
-$cpudata = cpuloads();
+/**
+ * Returns data about the first cpu (model, frequency, cache, temp)
+ *
+ * @return  array  the cpu data
+ */
+function getCpuData()
+{
+    return array(
+        'model'      => getCpuModel(),
+        'frequency'  => getCpuFrequency(),
+        'cache'      => getCpuCacheSize(),
+        'temp'       => getCpuTemperature(),
+    );
+}
 
+/**
+ * Returns the load data of the CPU
+ *
+ * @return  array  the cpu load data
+ */
+function getCpuLoadData()
+{
+    if (!($load_tmp = shell_exec('cat /proc/loadavg | awk \'{print $1","$2","$3}\'')))
+    {
+        $cpuloaddata = array(0, 0, 0);
+    }
+    else
+    {
+        // Number of cores
+        $cores = getCpuCoresNumber();
 
-/////////////////////////////
-///      RAM RELATED      ///
-/////////////////////////////
+        $load_exp = explode(',', $load_tmp);
 
-function raminfo(){
+        $cpuloaddata = array_map(
+            function ($value, $cores) {
+                $v = (int)($value * 100 / $cores);
+                if ($v > 100)
+                    $v = 100;
+                return $v;
+            },
+            $load_exp,
+            array_fill(0, 3, $cores)
+        );
+    }
+
+    return $cpuloaddata;
+}
+
+/**
+ * Returns the various data about the RAM
+ *
+ * @return  array  the ram data
+ */
+function getRamInfo()
+{
 
     $free = 0;
 
@@ -210,24 +325,22 @@ function raminfo(){
 
 
     $ramdata = array(
-        'used'          => mainclass::getSize($used * 1024),
-        'free'          => mainclass::getSize($free * 1024),
-        'total'         => mainclass::getSize($total * 1024),
+        'used'          => getSize($used * 1024),
+        'free'          => getSize($free * 1024),
+        'total'         => getSize($total * 1024),
         'percent_used'  => $percent_used,
     );
 
-    return json_encode($ramdata);
+    return $ramdata;
 }
 
-// Set RAM data variable
-$ramdata = raminfo();
-
-
-/////////////////////////////
-///      BOOTUP TIME      ///
-/////////////////////////////
-
-function bootup(){
+/**
+ * Returns the boot up time
+ *
+ * @return  array  the time since last boot
+ */
+function getBootupTime()
+{
     if (!($upt_tmp = shell_exec('cat /proc/uptime')))
     {
         $last_boot = 'N/A';
@@ -241,18 +354,16 @@ function bootup(){
         'last_boot'     => $last_boot
     );
 
-    return json_encode($bootTime);
+    return $bootTime;
 }
 
-// Set bootup variable
-$bootTime = bootup();
-
-
-//////////////////////////////
-///      SWAP RELATED      ///
-//////////////////////////////
-
-function swap(){
+/**
+ * Returns the data about the system swap space
+ *
+ * @return  array  the swap data
+ */
+function getSwapData()
+{
 
     // Free
     if (!($free = shell_exec('grep SwapFree /proc/meminfo | awk \'{print $2}\'')))
@@ -276,24 +387,22 @@ function swap(){
 
 
     $datas = array(
-        'used'          => mainclass::getSize($used * 1024),
-        'free'          => mainclass::getSize($free * 1024),
-        'total'         => mainclass::getSize($total * 1024),
+        'used'          => getSize($used * 1024),
+        'free'          => getSize($free * 1024),
+        'total'         => getSize($total * 1024),
         'percent_used'  => $percent_used,
     );
 
-    return json_encode($datas);
+    return $datas;
 }
 
-// Set swap variable
-$swap = swap();
-
-
-//////////////////////////////
-///     NETWORK RELATED    ///
-//////////////////////////////
-
-function network(){
+/**
+ * Returns the data about the network usage
+ *
+ * @return  array  the network data
+ */
+function getNetworkData()
+{
     $datas    = array();
     $network  = array();
 
@@ -306,7 +415,7 @@ function network(){
     // Returns command line for retrieving interfaces
     function getInterfacesCommand($commands)
     {
-        $ifconfig = mainclass::whichCommand($commands['ifconfig'], ' | awk -F \'[/  |: ]\' \'{print $1}\' | sed -e \'/^$/d\'');
+        $ifconfig = whichCommand($commands['ifconfig'], ' | awk -F \'[/  |: ]\' \'{print $1}\' | sed -e \'/^$/d\'');
 
         if (!empty($ifconfig))
         {
@@ -314,7 +423,7 @@ function network(){
         }
         else
         {
-            $ip_cmd = mainclass::whichCommand($commands['ip'], ' -V', false);
+            $ip_cmd = whichCommand($commands['ip'], ' -V', false);
 
             if (!empty($ip_cmd))
             {
@@ -330,7 +439,7 @@ function network(){
     // Returns command line for retrieving IP addresses from interfaces
     function getIpCommand($commands, $interface)
     {
-        $ifconfig = mainclass::whichCommand($commands['ifconfig'], ' '.$interface.' | awk \'/inet / {print $2}\' | cut -d \':\' -f2');
+        $ifconfig = whichCommand($commands['ifconfig'], ' '.$interface.' | awk \'/inet / {print $2}\' | cut -d \':\' -f2');
 
         if (!empty($ifconfig))
         {
@@ -338,12 +447,12 @@ function network(){
         }
         else
         {
-            $ip_cmd = mainclass::whichCommand($commands['ip'], ' -V', false);
+            $ip_cmd = whichCommand($commands['ip'], ' -V', false);
 
             if (!empty($ip_cmd))
             {
                 return 'for family in inet inet6; do '.
-                   $ip_cmd.' -oneline -family $family addr show '.$interface.' | grep -v fe80 | awk \'{print $4}\' | sed "s/\/.*//"; ' .
+                $ip_cmd.' -oneline -family $family addr show '.$interface.' | grep -v fe80 | awk \'{print $4}\' | sed "s/\/.*//"; ' .
                 'done';
             }
             else
@@ -396,8 +505,8 @@ function network(){
             $datas[] = array(
                 'interface' => $interface['name'],
                 'ip'        => $interface['ip'],
-                'transmit'  => mainclass::getSize($getBandwidth_tx[0]),
-                'receive'   => mainclass::getSize($getBandwidth_rx[0]),
+                'transmit'  => getSize($getBandwidth_tx[0]),
+                'receive'   => getSize($getBandwidth_rx[0]),
             );
 
             unset($getBandwidth_tx, $getBandwidth_rx);
@@ -405,18 +514,16 @@ function network(){
     }
 
 
-    return json_encode($datas);
+    return $datas;
 }
 
-// Set network variable
-$network = network();
-
-
-//////////////////////////////
-///      DISK RELATED      ///
-//////////////////////////////
-
-function disk(){
+/**
+ * Returns the data about the disk usage
+ *
+ * @return  array  the disk data
+ */
+function getDiskData()
+{
     $datas = array();
 
     if (!(exec('/bin/df -T | awk -v c=`/bin/df -T | grep -bo "Type" | awk -F: \'{print $2}\'` \'{print substr($0,c);}\' | tail -n +2 | awk \'{print $1","$2","$3","$4","$5","$6","$7}\'', $df)))
@@ -447,14 +554,14 @@ function disk(){
                 $mounted_points[] = trim($mount);
 
                 $datas[$key] = array(
-                    'total'         => mainclass::getSize($total * 1024),
-                    'used'          => mainclass::getSize($used * 1024),
-                    'free'          => mainclass::getSize($free * 1024),
+                    'total'         => getSize($total * 1024),
+                    'used'          => getSize($used * 1024),
+                    'free'          => getSize($free * 1024),
                     'percent_used'  => trim($percent, '%'),
                     'mount'         => $mount,
                 );
 
-                    $datas[$key]['filesystem'] = $filesystem;
+                $datas[$key]['filesystem'] = $filesystem;
             }
 
             $key++;
@@ -463,21 +570,5 @@ function disk(){
     }
 
 
-    return json_encode($datas);
+    return $datas;
 }
-
-// Set disk variable
-$disk = disk();
-
-
-?>
-
-<!-- Set the variables for the javascript files -->
-<script>
-    var cpudata = <?php print json_encode($cpudata); ?>;
-    var ramdata = <?php print json_encode($ramdata); ?>;
-    var bootupdata = <?php print json_encode($bootTime); ?>;
-    var swapdata = <?php print json_encode($swap); ?>;
-    var networkdata = <?php print json_encode($network); ?>;
-    var diskdata = <?php print json_encode($disk); ?>;
-</script>

@@ -18,12 +18,12 @@
 
 
 // Get vars from system.php and set them for use
-var jsonramdata = JSON.parse(ramdata);
-var jsoncpudata = JSON.parse(cpudata);
-var jsonbootupdata = JSON.parse(bootupdata);
-var jsonswapdata = JSON.parse(swapdata);
-var jsonnetworkdata = JSON.parse(networkdata);
-var jsondiskdata = JSON.parse(diskdata);
+var jsonramdata = ramdata;
+var jsoncpudata = cpudata;
+var jsonbootupdata = bootupdata;
+var jsonswapdata = swapdata;
+var jsonnetworkdata = networkdata;
+var jsondiskdata = diskdata;
 
 // Set the RAM percentage used
 var ramdef = jsonramdata.percent_used;
