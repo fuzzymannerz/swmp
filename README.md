@@ -2,6 +2,13 @@
 # SWMP - Server Web Monitor Page
 
 **A responsive, eye-pleasing Linux server statistics dashboard.**
+- [Screenshot](#non-fancy-fake-devices-screenshot-)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Themes](#themes)
+- [Show Some Love <3](#show-some-love-3)
+- [Credits & Acknowledgements](#credits--acknowledgements)
+
 
 ![](http://i.imgur.com/q8XWluS.png)
 
