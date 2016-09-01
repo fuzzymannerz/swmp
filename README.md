@@ -34,7 +34,7 @@ Simply run `bash <(curl -s -L https://getswmp.thefuzz.xyz)` from your Linux comm
 ## Themes
 SWMP includes a selection of themes. The default being **simplex**. (The red and white one above)
 ![](http://i.imgur.com/vlw9NyV.png)
-To choose another theme, copy **config.php** to **config.local.php** and change line `"theme" => "slate"` to the theme of your choice. All theme stylesheets are located in **~/css/themes/**.
+To choose another theme, copy **config.php** to **config.local.php** and change line `"theme" => "simplex"` to the theme of your choice. All theme stylesheets are located in **~/css/themes/**.
 
 ## Show Some Love <3
 If you make use of SWMP in some way, please consider a donation.    
