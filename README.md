@@ -2,6 +2,13 @@
 # SWMP - Server Web Monitor Page
 
 **A responsive, eye-pleasing Linux server statistics dashboard.**
+- [Screenshot](#non-fancy-fake-devices-screenshot-)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Themes](#themes)
+- [Show Some Love <3](#show-some-love-3)
+- [Credits & Acknowledgements](#credits--acknowledgements)
+
 
 ![](http://i.imgur.com/q8XWluS.png)
 
@@ -14,13 +21,18 @@
 - PHP with **shellexec()** and **exec()** enabled.
 
 ## Installation
+
+### The Easy Way
+Simply run `bash <(curl -s -L https://getswmp.thefuzz.xyz)` from your Linux command line and follow the setup steps.
+
+### The Manual Way
 1. [Download the Zip file](https://github.com/fuzzymannerz/swmp/archive/master.zip).
 2. Extract the files to the web server. (You might want to secure access somehow, [.htpasswd](http://www.htaccesstools.com/htpasswd-generator/) maybe?)
 3. Optionally copy the file `config.php` to `config.local.php` and adjust the settings for your web server.
 4. That's it! (Unless you want to change the theme, in which case, read on!)
 
 ## Themes
-SWMP includes 12 Bootstrap themes from Bootswatch. The default being **simplex**. (The red and white one above)
+SWMP includes a selection of themes. The default being **simplex**. (The red and white one above)
 ![](http://i.imgur.com/vlw9NyV.png)
 To choose another theme, edit **config.local.php** and change line `"theme" => "slate"` to the theme of your choice. The choices are:    
 _cerulean, cosmo, lumen, paper, readable, sandstone, simplex, slate, spacelab, superhero, united_ and _yeti_.    
