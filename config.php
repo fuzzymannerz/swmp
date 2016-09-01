@@ -9,7 +9,8 @@ return array
     // all themes are files in the /css/ folder
     // available themes are:
     // "cerulean", "cosmo", "lumen", "paper", "readable", "sandstone",
-    // "simplex", "slate", "spacelab", "superhero", "united", "yeti"
+    // "simplex", "slate", "spacelab", "superhero", "united", "yeti",
+    // "darkplex", "rose", "terminal"
     "theme" => "simplex",
 
     // if set to true errors are shown for system information that could not be recieved
