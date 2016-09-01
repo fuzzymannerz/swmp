@@ -24,10 +24,10 @@ Simply run `bash <(curl -s -L https://getswmp.thefuzz.xyz)` from your Linux comm
 3. That's it! (Unless you want to change the theme, in which case, read on!)
 
 ## Themes
-SWMP includes 12 Bootstrap themes from Bootswatch. The default being **simplex**. (The red and white one above)
+SWMP includes a selection of themes. The default being **simplex**. (The red and white one above)
 ![](http://i.imgur.com/vlw9NyV.png)
 To choose another theme, edit **index.php** and change line **41** to the theme of your choice. The choices are:    
-_cerulean, cosmo, lumen, paper, readable, sandstone, simplex, slate, spacelab, superhero, united_ and _yeti_.    
+_cerulean, cosmo, lumen, paper, readable, sandstone, simplex, slate, spacelab, superhero, united, yeti_ and _darkplex_.    
 All theme stylesheets are located in **~/css/themes/**.
 
 ## Show Some Love <3
