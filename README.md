@@ -28,13 +28,15 @@ Simply run `bash <(curl -s -L https://getswmp.thefuzz.xyz)` from your Linux comm
 ### The Manual Way
 1. [Download the Zip file](https://github.com/fuzzymannerz/swmp/archive/master.zip).
 2. Extract the files to the web server. (You might want to secure access somehow, [.htpasswd](http://www.htaccesstools.com/htpasswd-generator/) maybe?)
-3. That's it! (Unless you want to change the theme, in which case, read on!)
+3. Optionally copy the file `config.php` to `config.local.php` and adjust the settings for your web server.
+4. That's it! (Unless you want to change the theme, in which case, read on!)
 
 ## Themes
 SWMP includes a selection of themes. The default being **simplex**. (The red and white one above)
 ![](http://i.imgur.com/vlw9NyV.png)
-To choose another theme, edit **index.php** and change line **41** to the theme of your choice.    
-The choices of theme stylesheets are located in **~/css/themes/**.
+To choose another theme, edit **config.local.php** and change line `"theme" => "slate"` to the theme of your choice. The choices are:    
+_cerulean, cosmo, lumen, paper, readable, sandstone, simplex, slate, spacelab, superhero, united_ and _yeti_.    
+All theme stylesheets are located in **~/css/themes/**.
 
 ## Show Some Love <3
 If you make use of SWMP in some way, please consider a donation.    
