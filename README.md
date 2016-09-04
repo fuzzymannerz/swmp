@@ -23,7 +23,10 @@
 ## Installation
 
 ### The Easy Way
-Simply run `bash <(curl -s -L https://getswmp.thefuzz.xyz)` from your Linux command line and follow the setup steps.    
+Simply run:
+```bash
+bash <(curl -s -L https://getswmp.thefuzz.xyz)
+```
 The installer will also help you to secure the install folder with a **.htpasswd** file.    
 If you want to see the installer source, [it's available directly here](https://getswmp.thefuzz.xyz).
 
