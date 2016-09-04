@@ -17,4 +17,7 @@ return array
     // The window title
     // Available replacements are: {hostname}, {ip}, {os} and {kernel}
     "window_title" => "SWMP | {hostname}",
+
+    // How often to reload the page
+    "reload" => "60",
 );

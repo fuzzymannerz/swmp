@@ -311,3 +311,9 @@ disktable(jsondiskdata);
       $( document ).trigger( "enhance.tablesaw" );
     });
   })( jQuery );
+
+if(reload !== 0) {
+    setInterval(function(){
+        $("#reloadbtn").text("Reload (" + --reload + ")");
+    },1000);
+}

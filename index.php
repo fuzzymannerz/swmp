@@ -22,6 +22,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="refresh" content="<?php print config.reload ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
@@ -55,6 +56,7 @@
     <link rel="stylesheet" href="css/tablesaw.css">
     <script src="js/table.js"></script>
     <script>
+        var reload = <?php print json_encode($config["reload"]); ?>;
         var cpudata = <?php print json_encode($cpudata); ?>;
         var ramdata = <?php print json_encode($ramdata); ?>;
         var bootupdata = <?php print json_encode($bootTime); ?>;
@@ -68,8 +70,8 @@
 
     <div class="container">
         <div class="row">
-            <div class="page-header">
-                <button type="button" class="btn btn-primary pull-right" onClick="location.reload();">Reload</button>
+            <div class="page-header"> <<<<<<< HEAD:index.php
+                <button type="button" class="btn btn-primary pull-right" onClick="location.reload();" id="reloadbtn">Reload</button>
                 <h2 onClick="location.reload();" class="headertitle">SWMP | <?php echo $hostname; ?></h2>
             </div>
 
