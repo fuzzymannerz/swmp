@@ -317,6 +317,6 @@ if(reload !== 0) {
         $("#reloadbtn").text("Reload (" + --reload + ")");
 	if(reload===0) {
 		location.reload()
-	)
+	}
     },1000);
 }
