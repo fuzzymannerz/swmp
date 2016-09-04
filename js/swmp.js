@@ -315,5 +315,8 @@ disktable(jsondiskdata);
 if(reload !== 0) {
     setInterval(function(){
         $("#reloadbtn").text("Reload (" + --reload + ")");
+	if(reload===0) {
+		location.reload()
+	)
     },1000);
 }
