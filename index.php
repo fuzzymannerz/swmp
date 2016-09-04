@@ -69,7 +69,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="page-header"> <<<<<<< HEAD:index.php
+            <div class="page-header">
                 <button type="button" class="btn btn-primary pull-right" onClick="location.reload();" id="reloadbtn">Reload</button>
                 <h2 onClick="location.reload();" class="headertitle">SWMP | <?php echo $hostname; ?></h2>
             </div>
