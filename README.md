@@ -7,7 +7,7 @@
 - [Installation](#installation)
 - [Themes](#themes)
 - [Show Some Love <3](#show-some-love-3)
-- [Contributions & Credits](#contributions--credits)
+- [Contributions, Ports & Credits](#contributions)
 
 
 ![](http://i.imgur.com/q8XWluS.png)
@@ -47,13 +47,16 @@ If you make use of SWMP in some way, please consider a donation.
 **[PayPal](https://paypal.me/fuzzymannerz)**, **[Flattr](https://flattr.com/submit/auto?user_id=fuzzymannerz&url=https://github.com/fuzzymannerz/swmp&title=SWMP)**    
 **BTC:** 1DUJH2kqccDpTHHSCXDkRGhxtvXm9PdnkN
 
-## Contributions & Credits
+## Contributions
 **Feel free to contribute to SWMP, these guys already did:**   
 [TomasKostadinov](https://github.com/TomasKostadinov) - _Darkplex Theme._    
 [daison12006013](https://github.com/daison12006013) - _Bugfixes._   
 [Mikescher](https://github.com/Mikescher) - _Configuration file and error messages._    
 
+## Ports & Variations
+[SWMPjs](https://github.com/Efreak/swmpjs) - _Efreak's nodejs version of SWMP._   
 
+## Credits
 **SWMP also wouldn't be possible without the use of these awesome projects:**    
 eZ Server Monitor Web:    
 https://github.com/shevabam/ezservermonitor-web    
