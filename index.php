@@ -55,6 +55,7 @@
     <link rel="stylesheet" href="css/tablesaw.css">
     <script src="js/table.js"></script>
     <script>
+        var reload = <?php print json_encode($config["reload"]); ?>;
         var cpudata = <?php print json_encode($cpudata); ?>;
         var ramdata = <?php print json_encode($ramdata); ?>;
         var bootupdata = <?php print json_encode($bootTime); ?>;
@@ -69,7 +70,7 @@
     <div class="container">
         <div class="row">
             <div class="page-header">
-                <button type="button" class="btn btn-primary pull-right" onClick="location.reload();">Reload</button>
+                <button type="button" class="btn btn-primary pull-right" onClick="location.reload();" id="reloadbtn">Reload</button>
                 <h2 onClick="location.reload();" class="headertitle">SWMP | <?php echo $hostname; ?></h2>
             </div>
 

@@ -311,3 +311,15 @@ disktable(jsondiskdata);
       $( document ).trigger( "enhance.tablesaw" );
     });
   })( jQuery );
+
+if(reload !== 0) {
+    var rld = setInterval(function(){
+        if(reload===0) {
+            $("#reloadbtn").text("Reloading");
+            location.reload();
+            clearInterval(rld);
+        } else {
+            $("#reloadbtn").text("Reload (" + --reload + ")");
+        }
+    },1000);
+}

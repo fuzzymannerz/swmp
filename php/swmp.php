@@ -70,3 +70,11 @@ $wtitle = str_replace("{hostname}", $hostname, $wtitle);
 $wtitle = str_replace("{ip}", $ip, $wtitle);
 $wtitle = str_replace("{os}", $os, $wtitle);
 $wtitle = str_replace("{kernel}", $kernel, $wtitle);
+
+//===================================================
+
+// Allow the user to specify the theme in the address
+
+if ($_GET['theme']) {
+    $config['theme'] = $_GET['theme'];
+}

@@ -17,4 +17,8 @@ return array
     // The window title
     // Available replacements are: {hostname}, {ip}, {os} and {kernel}
     "window_title" => "SWMP | {hostname}",
+
+    // How often to reload the page (Default is "60")
+    // Set the time in seconds, to disable automatic reload simply change to "0"
+    "reload" => 60,
 );
