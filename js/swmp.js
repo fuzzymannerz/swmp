@@ -313,10 +313,13 @@ disktable(jsondiskdata);
   })( jQuery );
 
 if(reload !== 0) {
-    setInterval(function(){
-        $("#reloadbtn").text("Reload (" + --reload + ")");
-	if(reload===0) {
-		location.reload()
-	}
+    var rld = setInterval(function(){
+        if(reload===0) {
+            $("#reloadbtn").text("Reloading");
+            location.reload();
+            clearInterval(rld);
+        } else {
+            $("#reloadbtn").text("Reload (" + --reload + ")");
+        }
     },1000);
 }
