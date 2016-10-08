@@ -27,16 +27,15 @@ Simply run:
 ```bash
 bash <(curl -s -L https://getswmp.thefuzz.xyz)
 ```
-The installer will also help you to secure the install folder with a **.htpasswd** file.    
-If you want to see the installer source, [it's available directly here](https://getswmp.thefuzz.xyz).
-
-### The Other Easy Way  (with 'wget')
-Simply run:
+_or_
 ```bash
 wget https://thefuzz.xyz/swmp/install.sh
 chmod +x install.sh
 ./install.sh
 ```
+The installer will also help you to secure the install folder with a `.htpasswd` file.    
+If you want to see the installer source, [it's available directly here](https://getswmp.thefuzz.xyz).    
+Optionally copy the file `config.php` to `config.local.php` and adjust the settings for your web server.
 
 ### The Manual Way
 1. [Download the Zip file](https://github.com/fuzzymannerz/swmp/archive/master.zip).
