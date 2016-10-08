@@ -30,6 +30,14 @@ bash <(curl -s -L https://getswmp.thefuzz.xyz)
 The installer will also help you to secure the install folder with a **.htpasswd** file.    
 If you want to see the installer source, [it's available directly here](https://getswmp.thefuzz.xyz).
 
+### The Other Easy Way  (with 'wget')
+Simply run:
+```bash
+wget https://thefuzz.xyz/swmp/install.sh
+chmod +x install.sh
+./install.sh
+```
+
 ### The Manual Way
 1. [Download the Zip file](https://github.com/fuzzymannerz/swmp/archive/master.zip).
 2. Extract the files to the web server. (You might want to secure access somehow, [.htpasswd](http://www.htaccesstools.com/htpasswd-generator/) maybe?)
