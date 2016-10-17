@@ -29,7 +29,7 @@ bash <(curl -s -L https://getswmp.thefuzz.xyz)
 ```
 _or_
 ```bash
-wget https://thefuzz.xyz/swmp/install.sh
+wget https://getswmp.thefuzz.xyz/install.sh
 chmod +x install.sh
 ./install.sh
 ```
