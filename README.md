@@ -25,7 +25,7 @@
 ### The Easy Way
 Simply run:
 ```bash
-wget https://getswmp.thefuzz.xyz && chmod +x install.sh && ./install.sh
+wget https://getswmp.thefuzz.xyz/install.sh && chmod +x install.sh && ./install.sh
 ```
 The installer will also help you to secure the install folder with a `.htpasswd` file.    
 If you want to see the installer source, [it's available directly here](https://getswmp.thefuzz.xyz).    
