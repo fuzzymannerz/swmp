@@ -27,8 +27,11 @@ Simply run:
 ```bash
 wget https://getswmp.thefuzz.xyz/install.sh && chmod +x install.sh && ./install.sh
 ```
-The installer will also help you to secure the install folder with a `.htpasswd` file.    
-If you want to see the installer source, [it's available directly here](https://getswmp.thefuzz.xyz).    
+*The installer script has been tested with Debian, Linux Mint, Fedora, CentOS and Arch Linux.*    
+**Please let me know of any issues with the installer.**
+
+The installer will also help you to secure the install folder with a `.htpasswd` file. (excluding Arch)    
+If you want to see the installer source, [it's available directly here](https://getswmp.thefuzz.xyz/install.sh).    
 Optionally copy the file `config.php` to `config.local.php` and adjust the settings for your web server.
 
 ### The Manual Way
