@@ -75,5 +75,8 @@ $wtitle = str_replace("{kernel}", $kernel, $wtitle);
 // Allow the user to specify the theme in the address
 
 if (isset($_GET['theme'])) {
-    $config['theme'] = $_GET['theme'];
+    $theme = basename($_GET['theme']);
+    
+    if(file_exists("css/themes/{$theme}.css"))
+        $config['theme'] = $theme;
 }
