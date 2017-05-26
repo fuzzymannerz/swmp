@@ -50,7 +50,6 @@ $cpudata = getCpuLoadData($all_errors);
 
 $ramdata = getRamInfo($all_errors);
 
-
 $swap = getSwapData($all_errors);
 $network = getNetworkData($all_errors);
 $disk = getDiskData($all_errors);
@@ -75,6 +74,9 @@ $wtitle = str_replace("{kernel}", $kernel, $wtitle);
 
 // Allow the user to specify the theme in the address
 
-if ($_GET['theme']) {
-    $config['theme'] = $_GET['theme'];
+if (isset($_GET['theme'])) {
+    $theme = basename($_GET['theme']);
+    
+    if(file_exists("css/themes/{$theme}.css"))
+        $config['theme'] = $theme;
 }
