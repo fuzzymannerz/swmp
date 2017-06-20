@@ -56,7 +56,8 @@ If you make use of SWMP in some way, please consider a donation.
 [TomasKostadinov](https://github.com/TomasKostadinov) - _Darkplex Theme._    
 [daison12006013](https://github.com/daison12006013) - _Bugfixes._   
 [Mikescher](https://github.com/Mikescher) - _Configuration file and error messages._    
-[Efreak](https://github.com/Efreak) - _Automatic reloading & URL theme switching._    
+[Efreak](https://github.com/Efreak) - _Automatic reloading & URL theme switching._   
+[liamjack](https://github.com/liamjack) - _Fixed vulnerability issue with themes._
 
 ## Ports & Variations
 [SWMPjs](https://github.com/Efreak/swmpjs) - _Efreak's nodejs version of SWMP._   
