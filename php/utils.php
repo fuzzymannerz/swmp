@@ -62,6 +62,8 @@ function whichCommand($cmds, $args = '', $returnWithArgs = true)
  */
 function getHumanTime($seconds)
 {
+    $seconds = intval($seconds);
+
     $units = array(
         'year'   => 365*86400,
         'day'    => 86400,
