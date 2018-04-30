@@ -280,6 +280,9 @@ function getCpuLoadData(&$errors)
 
         $cpuloaddata = array_map(
             function ($value, $cores) {
+                $value = floatval($value);
+                $cores = intval($cores);
+
                 $v = (int)($value * 100 / $cores);
                 if ($v > 100)
                     $v = 100;
@@ -318,6 +321,9 @@ function getRamInfo(&$errors)
 
         array_push($errors, "Could not read RAM data: total memory");
     }
+
+    $total = floatval($total);
+    $free = floatval($free);
 
     // Used
     $used = $total - $free;
@@ -380,6 +386,9 @@ function getSwapData(&$errors)
 
         $total = 0;
     }
+
+    $total = floatval($total);
+    $free = floatval($total);
 
     // Used
     $used = $total - $free;
