@@ -267,12 +267,10 @@
                 <footer class="footer">
                     <div class="container">
                         <p class="text-muted"><a href="https://github.com/fuzzymannerz/swmp" target="_blank">SWMP</a>
-                            Created By <a href="https://thefuzz.xyz" target="_blank">Fuzzy</a> - 2016<br>
+                            Created By <a href="https://github.com/fuzzymannerz" target="_blank">Fuzzy</a> - 2016<br>
                             Why not <a href="https://github.com/fuzzymannerz/swmp" target="_blank">Fork SWMP on
                                 GitHub</a> or show your support via <a href="https://paypal.me/fuzzymannerz"
-                                                                       target="_blank">PayPal</a> or <a
-                                href="https://flattr.com/submit/auto?fid=rok0q2&url=https%3A%2F%2Fgithub.com%2Ffuzzymannerz%2Fswmp"
-                                target="_blank">Flattr</a>.</p>
+                                                                       target="_blank">PayPal.</p>
                     </div>
                 </footer>
             </div>
