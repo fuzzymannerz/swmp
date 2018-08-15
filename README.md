@@ -1,4 +1,3 @@
-[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=fuzzymannerz&url=https://github.com/fuzzymannerz/swmp&title=SWMP)
 # SWMP - Server Web Monitor Page
 
 **A responsive, eye-pleasing Linux server statistics dashboard.**
@@ -25,13 +24,13 @@
 ### The Easy Way
 Simply run:
 ```bash
-wget https://getswmp.fuzzytek.ml/install.sh && chmod +x install.sh && ./install.sh
+wget https://get.swmp.ml/install.sh && chmod +x install.sh && ./install.sh
 ```
 **The installer script has been tested with Debian, Linux Mint, Fedora, CentOS and Arch Linux.**   
 *Please let me know of any issues with the installer.*
 
 The installer will also help you to secure the install folder with a `.htpasswd` file. (excluding Arch)    
-If you want to see the installer source, [it's available directly here](https://getswmp.fuzzytek.ml/install.sh).    
+If you want to see the installer source, [it's available directly here](https://get.swmp.ml/install.sh).    
 Optionally copy the file `config.php` to `config.local.php` and adjust the settings for your web server.
 
 ### The Manual Way
@@ -48,7 +47,7 @@ To choose another theme, copy **config.php** to **config.local.php** and change 
 ## Show Some Love <3
 If you make use of SWMP in some way, please consider a donation.    
 
-**[PayPal](https://paypal.me/fuzzymannerz)**, **[Flattr](https://flattr.com/submit/auto?user_id=fuzzymannerz&url=https://github.com/fuzzymannerz/swmp&title=SWMP)**    
+**[PayPal](https://paypal.me/fuzzymannerz)**        
 **BTC:** 1DUJH2kqccDpTHHSCXDkRGhxtvXm9PdnkN
 
 ## Contributions
