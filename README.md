@@ -38,8 +38,7 @@ Optionally copy the file `config.php` to `config.local.php` and adjust the setti
 ### The Manual Way
 1. [Download the Zip file](https://github.com/fuzzymannerz/swmp/archive/master.zip).
 2. Extract the files to the web server. (You might want to secure access somehow, [.htpasswd](http://www.htaccesstools.com/htpasswd-generator/) maybe?)
-3. Optionally copy the file `config.php` to `config.local.php` and adjust the settings for your web server.
-4. That's it! (Unless you want to change the theme, in which case, read on!)
+3. That's it!
 
 ![](https://camo.githubusercontent.com/b5d5b9c5b91d43c3352ac1cd7eb31b73116a4bee/687474703a2f2f692e696d6775722e636f6d2f766c77394e79562e706e67)
 ## Settings
