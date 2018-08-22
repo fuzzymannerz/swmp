@@ -47,7 +47,8 @@ This includes choosing from a selection of themes, choosing the language (See [L
 
 ## Languages
 To better make SWMP available to everyone it can be translated into any language.    
-On the settings page there is a language dropdown box. This automatically picks up any language file in the locale tag format of `en_GB.php`. These files can be found in the `/lang` folder and if you can help out you are enouraged to submit pull requests of these translation files so they can be included for everyone to use. Use the `lang/en_GB.php` file as a reference point.
+On the settings page there is a language dropdown box. This automatically picks up any language file in the locale tag format of `en_GB.php`. These files can be found in the `/lang` folder and if you can help out you are enouraged to submit pull requests of these translation files so they can be included for everyone to use.    
+As the project progresses the language files will also need to be updated accordingly. The `en_GB.php` file will always be up to date however so can always be used as a reference point.
 
 ## Show Some Love <3
 If you make use of SWMP in some way, please consider a donation.    
