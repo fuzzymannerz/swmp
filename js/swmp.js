@@ -1,7 +1,7 @@
 /*///////////////////////////////////////////////
 ///                                           ///
-///     SWMP - Server Web Monitoring Page     ///
-///       By Fuzzy - thefuzz.xyz - 2016       ///
+///    SWMP - Server Web Monitoring Page      ///
+///         By Fuzzy - 2016 - 2018            ///
 ///                                           ///
 /////////////////////////////////////////////////
 ///                                           ///
@@ -11,7 +11,7 @@
 ////////////////////////////////////////////////////////////
 ///                                                      ///
 ///    If you make use of SWMP please consider to        ///
-///    show some love via PayPal, Flattr or BTC. <3      ///
+///    show some love via PayPal or BTC. <3              ///
 ///   (Details are on the GitHub page or my website.)    ///
 ///                                                      ///
 //////////////////////////////////////////////////////////*/
@@ -304,6 +304,10 @@ disktable(jsondiskdata);
 // Show the last bootup time
   $('#bootup').html(bootup);
 
+// Remove any errors when clicking on them
+function dismissError(){
+  $('#errorNotice').fadeOut();
+}
 
 // Fix the tables on smaller devices
   (function( $ ) {
@@ -315,11 +319,11 @@ disktable(jsondiskdata);
 if(reload !== 0) {
     var rld = setInterval(function(){
         if(reload===0) {
-            $("#reloadbtn").text("Reloading");
+            $("#reloadbtn").html('<i class="fas fa-sync-alt"></i> ..');
             location.reload();
             clearInterval(rld);
         } else {
-            $("#reloadbtn").text("Reload (" + --reload + ")");
+            $("#reloadbtn").html('<i class="fas fa-sync-alt"></i> ' + --reload);
         }
     },1000);
 }

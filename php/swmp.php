@@ -19,12 +19,7 @@
 //////////////////////////////////////////////////////////*/
 
 // ================  Load settings ================
-
 $config = require "config.php";
-if(file_exists('config.local.php')){
-    $config = array_merge($config,  require 'config.local.php');
-};
-
 //===================================================
 
 require 'php/system.php';
@@ -61,10 +56,10 @@ $disk = getDiskData($all_errors);
 $error_count = count($all_errors);
 if ($error_count > 8) {
     $all_errors = array_slice($all_errors, 0, 7);
-    $all_errors[] = "There were " . ($error_count - 7) . " more errors that are currently not shown";
+    $all_errors[] = $lang['THERE_WERE'] . " " . ($error_count - 7) . " " . $lang['ERRORS_NOT_SHOWN'];
 }
 
-$wtitle = $config["window_title"];
+$wtitle = $config["windowtitle"];
 $wtitle = str_replace("{hostname}", $hostname, $wtitle);
 $wtitle = str_replace("{ip}", $ip, $wtitle);
 $wtitle = str_replace("{os}", $os, $wtitle);

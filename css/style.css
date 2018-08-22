@@ -1,15 +1,18 @@
 .headertitle{
 	cursor: pointer;
 }
+.page-header{
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
+#reloadbtn, #savesettingsbtn{
+	margin-right: 10px;
+}
 td{
 	font-size: 12px;
 	text-align: center;
 	vertical-align: middle;
 	font-weight: bold;
-}
-.center-block {
-	float: none !important
-	margin: 0 auto;
 }
 .middletext{
 	text-align: center;
@@ -19,7 +22,7 @@ td{
 	margin-right: auto;
 	margin-left: auto;
 	align-content: center;
-	margin-top: -40px;
+	margin-top: -20px;
 }
 canvas {
         max-width: 100%;
@@ -33,4 +36,11 @@ canvas {
 footer{
 	font-size: 11px;
 	margin-top: 20px;
+	bottom: 0;
+	left: 0;
+	position: static;
+	width: 100%;
+}
+#errorNotice{
+	cursor: pointer;
 }
