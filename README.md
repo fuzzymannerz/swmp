@@ -43,7 +43,7 @@ Optionally copy the file `config.php` to `config.local.php` and adjust the setti
 ![](https://camo.githubusercontent.com/b5d5b9c5b91d43c3352ac1cd7eb31b73116a4bee/687474703a2f2f692e696d6775722e636f6d2f766c77394e79562e706e67)
 ## Settings
 SWMP includes a settings page. This enables you to configure some things with your SWMP installation.    
-This includes choosing from a selection of themes, choosing the language (See #languages for more information), changing the window title and showing and hiding elements on the main page as well as some debugging options.
+This includes choosing from a selection of themes, choosing the language (See [Languages](#languages) for more information), changing the window title and showing and hiding elements on the main page as well as some debugging options.
 (All theme stylesheets are located in `~/css/themes/`.)
 
 ## Languages
