@@ -33,7 +33,6 @@ wget https://get.swmp.ml/install.sh && chmod +x install.sh && ./install.sh
 
 The installer will also help you to secure the install folder with a `.htpasswd` file. (excluding Arch)    
 If you want to see the installer source, [it's available directly here](https://get.swmp.ml/install.sh).    
-Optionally copy the file `config.php` to `config.local.php` and adjust the settings for your web server.
 
 ### The Manual Way
 1. [Download the Zip file](https://github.com/fuzzymannerz/swmp/archive/master.zip).
