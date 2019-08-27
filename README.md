@@ -12,7 +12,7 @@
 ![](http://i.imgur.com/q8XWluS.png)    
 
 ### Live Demo    
-<a href="https://m.do.co/c/b6c4ddc534a6" target="_blank"><img src="https://opensource.nyc3.digitaloceanspaces.com/attribution/assets/PoweredByDO/DO_Powered_by_Badge_blue.png" alt="Powered by DigitalOcean" width="200"/></a>    
+<a href="https://m.do.co/c/b6c4ddc534a6" target="_blank"><img src="https://swmp.ml/img/do_blue.png" alt="Powered by DigitalOcean" width="200"/></a>    
 #### [Open a live demo](https://demo.swmp.ml)    
 (The demo resets all settings automatically every hour.)
 
