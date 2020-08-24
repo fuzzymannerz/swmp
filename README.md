@@ -1,7 +1,6 @@
 # SWMP - Server Web Monitor Page
 
 **A responsive, eye-pleasing Linux server statistics dashboard.**
-- [Live Demo](#live-demo)
 - [Requirements](#requirements)
 - [Installation](#installation)
 - [Settings](#settings)
@@ -10,11 +9,6 @@
 
 
 ![](http://i.imgur.com/q8XWluS.png)    
-
-### Live Demo    
-<a href="https://m.do.co/c/b6c4ddc534a6" target="_blank"><img src="https://swmp.ml/img/do_blue.png" alt="Powered by DigitalOcean" width="200"/></a>    
-#### [Open a live demo](https://demo.swmp.ml)    
-(The demo resets all settings automatically every hour.)
 
 ## Requirements
 - Linux OS with...
