@@ -1,4 +1,3 @@
-[![Flattr this git repo](http://api.flattr.com/button/flattr-badge-large.png)](https://flattr.com/submit/auto?user_id=fuzzymannerz&url=https://github.com/fuzzymannerz/swmp&title=SWMP)
 # SWMP - Server Web Monitor Page
 **A responsive, eye-pleasing Linux server statistics dashboard.**
 
