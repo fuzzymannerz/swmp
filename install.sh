@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Installs SWMP from the command line.
-# https://swmp.ml
 
 # Set some text display variables first because... pretty.
 bold=`tput bold`
@@ -49,7 +48,7 @@ EOF
 notoffered=true
 
 # Welcome the user
-echo -e "${bold}Welcome to the SWMP installation.\nhttps://swmp.ml\n${reset}"
+echo -e "${bold}Welcome to the SWMP installation.\n${reset}"
 read -p "Press ${bold}Enter${reset} to begin the setup process..."
 
 #####################################
