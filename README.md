@@ -1,5 +1,11 @@
 # SWMP - Server Web Monitor Page
 
+## Important Notice
+SWMP is no longer being maintained and hasn't been for a while.
+You are free to fork and use however you wish under the MIT license.
+The previous domain (swmp.ml) is no longer owned or operated by me. Do not use any of the installation script methods related to that domain name!
+--------------------------------------------------------------------
+
 **A responsive, eye-pleasing Linux server statistics dashboard.**
 - [Requirements](#requirements)
 - [Installation](#installation)
@@ -17,17 +23,6 @@
 
 ## Installation
 
-### The Easy Way
-Simply run:
-```bash
-wget https://swmp.ml/install.sh && chmod +x install.sh && ./install.sh
-```
-**The installer script has been tested with Debian, Linux Mint, Fedora, CentOS and Arch Linux.**   
-*Please let me know of any issues with the installer.*
-
-The installer will also help you to secure the install folder with a `.htpasswd` file. (excluding Arch)    
-If you want to see the installer source, [it's available directly here](https://swmp.ml/install.sh).    
-
 ### The Manual Way
 1. [Download the Zip file](https://github.com/fuzzymannerz/swmp/archive/master.zip).
 2. Extract the files to the web server. (You might want to secure access somehow, [.htpasswd](http://www.htaccesstools.com/htpasswd-generator/) maybe?)
@@ -41,13 +36,11 @@ This includes choosing from a selection of themes, choosing the language (See [L
 
 ## Languages
 To better make SWMP available to everyone it can be translated into any language.    
-On the settings page there is a language dropdown box. This automatically picks up any language file in the locale tag format of `en_GB.php`. These files can be found in the `/lang` folder and if you can help out you are enouraged to submit pull requests of these translation files so they can be included for everyone to use.    
-As the project progresses the language files will also need to be updated accordingly. The `en_GB.php` file will always be up to date however so can always be used as a reference point.
+On the settings page there is a language dropdown box. This automatically picks up any language file in the locale tag format of `en_GB.php`. These files can be found in the `/lang` folder.
 
 ## Show Some Love <3
 If you make use of SWMP in some way, please consider a donation.    
-
-**[PayPal](https://paypal.me/fuzzymannerz)**        
+     
 **BTC:** 1DUJH2kqccDpTHHSCXDkRGhxtvXm9PdnkN
 
 ## Contributions
