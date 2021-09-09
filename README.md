@@ -23,6 +23,10 @@ The previous domain (swmp.ml) is no longer owned or operated by me. Do not use a
 
 ## Installation
 
+### The Easy Way
+Run the installation script from:
+https://github.com/fuzzymannerz/swmp/blob/gh-pages/install.sh
+
 ### The Manual Way
 1. [Download the Zip file](https://github.com/fuzzymannerz/swmp/archive/master.zip).
 2. Extract the files to the web server. (You might want to secure access somehow, [.htpasswd](http://www.htaccesstools.com/htpasswd-generator/) maybe?)
